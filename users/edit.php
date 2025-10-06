@@ -198,7 +198,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <dd><?php echo sanitize($user['email']); ?></dd>
                     
                     <dt>Peran Saat Ini</dt>
-                    <dd><span class="badge bg-secondary text-capitalize"><?php echo sanitize($user['role']); ?></span></dd>
+                    <dd><span class="badge <?php echo getRoleBadgeClass($user['role']); ?> text-capitalize"><?php echo sanitize($user['role']); ?></span></dd>
                     
                     <dt>Status</dt>
                     <dd>

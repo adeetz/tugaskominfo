@@ -124,7 +124,7 @@ $users = $stmt->fetchAll();
                         <td><?php echo $user['user_id']; ?></td>
                         <td><?php echo sanitize($user['email']); ?></td>
                         <td>
-                            <span class="badge bg-secondary text-capitalize">
+                            <span class="badge <?php echo getRoleBadgeClass($user['role']); ?> text-capitalize">
                                 <?php echo sanitize($user['role']); ?>
                             </span>
                         </td>

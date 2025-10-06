@@ -170,7 +170,7 @@ $myActivities = $stmt->fetchAll();
                     <dd><?php echo sanitize($currentUser['email']); ?></dd>
                     
                     <dt>Role</dt>
-                    <dd><span class="badge bg-secondary text-capitalize"><?php echo sanitize($currentUser['role']); ?></span></dd>
+                    <dd><span class="badge <?php echo getRoleBadgeClass($currentUser['role']); ?> text-capitalize"><?php echo sanitize($currentUser['role']); ?></span></dd>
                     
                     <dt>Status</dt>
                     <dd>

@@ -93,3 +93,13 @@ function getFlashMessage() {
     }
     return null;
 }
+
+function getRoleBadgeClass($role) {
+    $colors = [
+        'superadmin' => 'bg-danger',
+        'admin' => 'bg-primary',
+        'operator' => 'bg-info',
+        'validator' => 'bg-warning text-dark'
+    ];
+    return $colors[$role] ?? 'bg-secondary';
+}

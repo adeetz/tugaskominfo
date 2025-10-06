@@ -59,7 +59,7 @@ $flash = getFlashMessage();
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown">
                             <i class="bi bi-person-circle"></i> <?php echo sanitize($currentUser['email']); ?>
-                            <span class="badge bg-secondary"><?php echo sanitize($currentUser['role']); ?></span>
+                            <span class="badge <?php echo getRoleBadgeClass($currentUser['role']); ?>"><?php echo sanitize($currentUser['role']); ?></span>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end">
                             <li><a class="dropdown-item" href="<?php echo APP_URL; ?>/profile.php">
