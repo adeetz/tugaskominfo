@@ -1,0 +1,207 @@
+================================================================================
+CARA INSTALL - SISTEM MANAJEMEN PENGGUNA
+Tugas Kominfo - Aplikasi Manajemen User (Bahasa Indonesia)
+================================================================================
+
+PERSYARATAN SISTEM:
+- PHP 8.0 atau lebih tinggi
+- MySQL 5.7 atau MariaDB 10.2 atau lebih tinggi
+- Web Server (Apache/Nginx)
+- Browser modern (Chrome, Firefox, Edge, Safari)
+
+================================================================================
+LANGKAH INSTALASI (7 MENIT):
+================================================================================
+
+1. EXTRACT PROJECT
+   - Extract file ZIP ke folder web server
+   - Contoh: C:\laragon\www\tugaskominfo
+   - Atau: /var/www/html/tugaskominfo
+
+2. BUAT DATABASE
+   - Buka tool database (Adminer/phpMyAdmin/HeidiSQL)
+   - Buat database baru dengan nama: tugaskominfo
+   - Collation: utf8mb4_unicode_ci (atau utf8mb4_general_ci)
+
+3. IMPORT DATABASE UTAMA
+   - Pilih database "tugaskominfo"
+   - Klik menu Import atau SQL Command
+   - Pilih file: database.sql
+   - Klik Execute/Go
+   - Tunggu sampai selesai
+
+4. IMPORT TABEL SETTINGS (BARU!)
+   - Tetap di database "tugaskominfo"
+   - Klik menu SQL Command
+   - Pilih file: database_update.sql
+   - Klik Execute/Go
+   - Tunggu sampai selesai
+   
+   CATATAN:
+   Tabel 'settings' diperlukan untuk fitur upload logo login.
+   Jangan skip langkah ini!
+
+5. JALANKAN SETUP (PENTING!)
+   - Buka browser
+   - Akses: http://localhost/tugaskominfo/setup.php
+   - Klik tombol "Run Setup Now"
+   - Tunggu sampai muncul "Setup Complete!"
+
+   CATATAN PENTING:
+   Setup.php akan otomatis generate password hash yang kompatibel 
+   dengan versi PHP di komputer Anda. Ini memastikan login pasti berhasil
+   tanpa masalah compatibility.
+
+6. LOGIN
+   - Klik tombol "Go to Login Page"
+   - Atau akses: http://localhost/tugaskominfo/login.php
+   
+   Kredensial Default:
+   Email    : admin@example.com
+   Password : Admin@123
+
+7. UPLOAD LOGO (OPSIONAL)
+   - Setelah login → Klik dropdown email di navbar
+   - Pilih menu "Pengaturan"
+   - Upload logo custom untuk halaman login
+   - Format: PNG, JPG, SVG, GIF, WebP
+   - Maksimal: 2MB
+
+8. SELESAI!
+   - Aplikasi siap digunakan
+   - PENTING: Ganti password default setelah login pertama!
+   - Test responsive: Mobile, Tablet, Laptop
+
+================================================================================
+TROUBLESHOOTING:
+================================================================================
+
+Problem: "Database connection failed"
+Solusi: 
+- Pastikan MySQL berjalan
+- Edit file config/database.php, sesuaikan kredensial database
+- Pastikan nama database sudah dibuat
+
+Problem: "Cannot login"
+Solusi:
+- Jalankan setup.php lagi
+- Setup.php akan reset password dengan hash yang benar
+
+Problem: "Page not found / 404"
+Solusi:
+- Pastikan semua file sudah ter-extract
+- Pastikan web server berjalan
+- Cek URL: http://localhost/tugaskominfo
+
+Problem: Halaman blank putih
+Solusi:
+- Cek PHP version minimal 8.0
+- Aktifkan error reporting di php.ini
+- Cek error log Apache/Nginx
+
+================================================================================
+FITUR APLIKASI:
+================================================================================
+
+FITUR UTAMA:
+✓ Login/Logout dengan session management
+✓ CRUD User (Create, Read, Update, Delete)
+✓ Role-based Access Control (Superadmin, Admin, Operator, Validator)
+✓ Dashboard dengan statistik real-time
+✓ Activity Logs (audit trail lengkap)
+✓ User Profile Management
+✓ Search & Filter Users
+✓ Security Features (CSRF, XSS, SQL Injection protection)
+✓ Password Strength Validation
+✓ Brute Force Protection (max 5 attempt)
+✓ Upload Logo Login (custom branding)
+✓ Responsive Design (Mobile 390px, Tablet 768px, Laptop 1280px+)
+
+
+================================================================================
+STRUKTUR FILE:
+================================================================================
+
+tugaskominfo/
+├── assets/              
+│   ├── css/             (Bootstrap & custom CSS)
+│   ├── js/              (JavaScript files)
+│   └── images/          (Upload logo disimpan disini - BARU!)
+├── config/              (Konfigurasi database & app)
+├── includes/            (Helper functions & auth)
+├── logs/                (Activity logs page)
+├── users/               (User CRUD pages)
+├── dashboard.php        (Halaman utama - Bahasa Indonesia)
+├── login.php            (Halaman login - dengan logo upload)
+├── logout.php           (Logout handler)
+├── profile.php          (User profile)
+├── settings.php         (Pengaturan logo - BARU!)
+├── setup.php            (Initial setup - PENTING!)
+├── database.sql         (Database schema utama)
+├── database_update.sql  (Tabel settings - BARU!)
+├── BACA_SAYA.txt        (Quick start guide)
+├── CARA_INSTALL.txt     (File ini - panduan lengkap)
+├── PANDUAN_LOGO.txt     (Cara upload logo - BARU!)
+├── PERUBAHAN_FINAL.md   (Changelog update - BARU!)
+├── README.md            (Dokumentasi lengkap)
+└── SETUP_GUIDE.md       (Panduan setup detail)
+
+================================================================================
+TEKNOLOGI YANG DIGUNAKAN:
+================================================================================
+
+Backend:
+- PHP 8.x (Native, tanpa framework)
+- MySQL/MariaDB
+- PDO (Prepared Statements)
+- File Upload Handler (logo management)
+
+Frontend:
+- HTML5, CSS3, JavaScript (ES6+)
+- Bootstrap 5.3.0 (Responsive framework)
+- Bootstrap Icons 1.10.5
+- Sweet Alert 2 v11.7.32 (BARU! - Notifikasi modern)
+
+Security:
+- Bcrypt password hashing
+- CSRF token protection
+- XSS prevention (htmlspecialchars)
+- SQL Injection prevention (PDO prepared statements)
+- Session timeout (30 menit)
+- File upload validation (size & format)
+
+Responsive:
+- Mobile: 390px (iPhone 12/13)
+- Tablet: 768px (iPad)
+- Laptop: 1280px+ (MacBook Air+)
+
+================================================================================
+KONTAK & SUPPORT:
+================================================================================
+
+Jika ada masalah saat instalasi:
+1. Baca README.md untuk dokumentasi lengkap
+2. Baca SETUP_GUIDE.md untuk troubleshooting detail
+3. Baca PANDUAN_LOGO.txt untuk upload logo
+4. Pastikan semua langkah instalasi sudah diikuti (termasuk database_update.sql)
+5. Jalankan setup.php untuk fix masalah password
+
+
+================================================================================
+CATATAN UNTUK PENGUJI:
+================================================================================
+
+PENTING: Instalasi harus urut!
+
+LANGKAH WAJIB:
+1. Import database.sql            → Buat tabel users, logs, dll
+2. Import database_update.sql     → Buat tabel settings (untuk logo)
+3. Jalankan setup.php             → Generate password yang benar
+4. Login                          → Test semua fitur
+5. Upload logo (opsional)         → Test fitur baru
+
+JANGAN SKIP:
+- database_update.sql → Tanpa ini fitur logo error!
+- setup.php → Tanpa ini tidak bisa login!
+
+================================================================================

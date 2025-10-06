@@ -1,0 +1,50 @@
+================================================================================
+SISTEM MANAJEMEN PENGGUNA - TUGAS KOMINFO
+================================================================================
+
+INTRODUCE:
+
+Selamat Siang Perkenalkan Saya M. Noor Aditya Rahman, saya seorang Fullstack Developer dengan pengalaman dalam pengembangan aplikasi berbasis web.
+Saya terbiasa menggunakan Laravel untuk backend, dan Tailwind CSS atau Svelte/React untuk frontend.
+Saya juga memahami manajemen database MySQL, serta proses deploy aplikasi di server (Nginx/Apache) dan integrasi API antar sistem.
+Saya terbiasa mengikuti tahapan SDLC — mulai dari analisis kebutuhan, desain sistem, pengembangan, testing, hingga maintenance.
+Dengan latar belakang itu, saya siap membantu Diskominfo mengembangkan dan memelihara sistem yang lebih efisien dan mudah digunakan.”
+
+
+QUICK START (4 LANGKAH):
+
+1. Import database.sql ke database "tugaskominfo"
+2. Import database_update.sql untuk tabel settings (BARU!)
+3. Jalankan http://localhost/tugaskominfo/setup.php
+4. Login dengan admin@example.com / Admin@123
+
+Detail lengkap: Baca file CARA_INSTALL.txt
+
+================================================================================
+
+PENTING! 
+- Jangan skip langkah 2 & 3!
+- database_update.sql untuk fitur upload logo login (BARU!)
+- setup.php memastikan password kompatibel dengan PHP version Anda
+
+================================================================================
+
+FITUR 
+✓ Upload Logo Login dengan Sweet Alert (BARU!)
+✓ Responsive Design (Mobile 390px, Tablet 768px, Laptop 1280px+)
+✓ Sweet Alert untuk semua notifikasi (modern & interaktif)
+
+Dokumentasi:
+- CARA_INSTALL.txt           = Panduan instalasi lengkap (BACA INI DULU!)
+- README.md                  = Dokumentasi fitur & teknis
+
+Default Login:
+- Email    : admin@example.com  
+- Password : Admin@123
+
+SETELAH LOGIN:
+1. Ubah password default
+2. Upload logo custom (Pengaturan → Upload Logo)
+3. Test semua fitur responsive
+
+================================================================================
