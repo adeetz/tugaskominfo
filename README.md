@@ -187,6 +187,76 @@ tugaskominfo/
 - attempted_at (DATETIME)
 ```
 
+## ROLE
+ **1. Superadmin** (Badge Merah 🔴)
+   Hak Akses Penuh:
+   •  ✅ view - Melihat daftar pengguna
+   •  ✅ create - Membuat pengguna baru (termasuk superadmin lain)
+   •  ✅ edit - Mengedit pengguna manapun (termasuk superadmin lain)
+   •  ✅ delete - Menghapus pengguna manapun (termasuk superadmin lain)
+   •  ✅ view_logs - Melihat log aktivitas sistem
+   •  ✅ manage_superadmin - Mengelola akun superadmin lainnya
+   •  ✅ manage_users - Akses ke halaman pengaturan sistem
+
+   Kesimpulan: Role tertinggi dengan akses penuh tanpa batasan
+
+   ──────────────────────────────────────────
+   **2. Admin** (Badge Biru 🔵)
+
+   Hak Akses Tinggi (hampir seperti Superadmin):
+   •  ✅ view - Melihat daftar pengguna
+   •  ✅ create - Membuat pengguna baru (admin, operator, validator)
+   •  ✅ edit - Mengedit pengguna (kecuali superadmin)
+   •  ✅ delete - Menghapus pengguna (kecuali superadmin)
+   •  ✅ view_logs - Melihat log aktivitas
+   •  ✅ manage_users - Akses pengaturan sistem
+   •  ❌ manage_superadmin - TIDAK BISA mengelola superadmin
+
+   Kesimpulan: Administrator dengan hak tinggi tapi tidak bisa menyentuh superadmin
+
+   ──────────────────────────────────────────
+   
+   **3. Operator** (Badge Biru Muda 💙)
+
+   Hak Akses Terbatas:
+   •  ✅ view - Melihat daftar pengguna
+   •  ✅ edit - Mengedit pengguna yang ada (kecuali superadmin)
+   •  ❌ create - TIDAK BISA membuat pengguna baru
+   •  ❌ delete - TIDAK BISA menghapus pengguna
+   •  ❌ view_logs - TIDAK BISA melihat log aktivitas
+   •  ❌ manage_users - TIDAK BISA akses pengaturan
+
+   Kesimpulan: Hanya untuk operasional edit data pengguna, tidak bisa create/delete
+
+   ──────────────────────────────────────────
+   
+   **4. Validator** (Badge Kuning/Orange 🟡)
+
+   Hak Akses Minimal (Read-Only):
+   •  ✅ view - Hanya melihat daftar pengguna
+   •  ❌ create - TIDAK BISA membuat pengguna
+   •  ❌ edit - TIDAK BISA mengedit pengguna
+   •  ❌ delete - TIDAK BISA menghapus pengguna
+   •  ❌ view_logs - TIDAK BISA melihat log
+   •  ❌ manage_users - TIDAK BISA akses pengaturan
+
+   Kesimpulan: Role view-only, hanya untuk melihat/validasi data tanpa bisa mengubah apapun
+
+   ──────────────────────────────────────────
+
+   **Hierarki Role:**
+
+     Superadmin (Tertinggi)
+         ↓
+       Admin
+         ↓
+      Operator
+         ↓
+     Validator (Terendah)
+
+   Semua role bisa mengakses Dashboard dan mengedit profil sendiri, tapi akses ke fitur lain dibatasi sesuai permission di atas.
+
+
 ## Fitur Keamanan
 
 1. **Password Security**
